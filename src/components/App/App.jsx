@@ -17,6 +17,10 @@ export default function App() {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
   }, [contacts]);
 
+  const clearFilter = () => {
+    setFilter('');
+  };
+
   const isContactlreadyExist = ({ name }) => {
     const result = contacts.find(
       contact => contact.name.toLowerCase() === name.toLowerCase()
@@ -55,7 +59,11 @@ export default function App() {
           title="Phonebook"
           onFormSubmit={contactFormHadler}
         ></ContactForm>
-        <Filter filterChange={handleFilter} filterValue={filter}></Filter>
+        <Filter
+          clearFilter={clearFilter}
+          filterChange={handleFilter}
+          filterValue={filter}
+        ></Filter>
       </Wrapper>
       <ContactList
         title="Contacts"

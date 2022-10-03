@@ -1,7 +1,8 @@
-import { Form, Label, Input } from './Filter.styled';
+import { Form, Label, Input, ClearButton } from './Filter.styled';
 import PropTypes from 'prop-types';
+import { FaTrashAlt } from 'react-icons/fa';
 
-export default function Filter({ filterChange, filterValue }) {
+export default function Filter({ clearFilter, filterChange, filterValue }) {
   return (
     <div>
       <Form>
@@ -14,6 +15,9 @@ export default function Filter({ filterChange, filterValue }) {
             value={filterValue}
           />
         </Label>
+        <ClearButton onClick={clearFilter} type="button">
+          <FaTrashAlt />
+        </ClearButton>
       </Form>
     </div>
   );
@@ -22,4 +26,5 @@ export default function Filter({ filterChange, filterValue }) {
 Filter.propTypes = {
   filterValue: PropTypes.string.isRequired,
   filterChange: PropTypes.func.isRequired,
+  clearFilter: PropTypes.func.isRequired,
 };
