@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import shortid from 'shortid';
 import {
@@ -9,7 +9,6 @@ import {
   Input,
   Button,
 } from './ContactForm.styled';
-import { FaRust, FaShuttleVan } from 'react-icons/fa';
 
 export default function ContactForm({ title, onFormSubmit }) {
   const [name, setName] = useState('');
