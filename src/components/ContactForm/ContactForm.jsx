@@ -13,7 +13,6 @@ import {
 export default function ContactForm({ title, onFormSubmit }) {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-  const [id, setId] = useState(0);
 
   const onContactFormInputChange = e => {
     const { name, value } = e.currentTarget;
@@ -28,17 +27,16 @@ export default function ContactForm({ title, onFormSubmit }) {
       default:
         break;
     }
-    setId(shortid.generate());
   };
   const addContact = e => {
     e.preventDefault();
+    const id = shortid.generate();
     onFormSubmit({ name, number, id });
     formReset();
   };
   const formReset = () => {
     setName('');
     setNumber('');
-    setId(0);
   };
 
   return (
